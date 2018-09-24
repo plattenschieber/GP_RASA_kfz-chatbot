@@ -10,5 +10,5 @@ ENTRYPOINT python ./src/train_dialog.py \
     && cd ./models/dialogue \
     && zip -r /output/model.zip ./* \
     && cd - \
-    && curl -X POST -H "Content-Type: application/zip" -d /output/model.zip \
-     http://gpb_chatbot-model-server_1:8000
+    && curl -X POST -F "file=@/output/model.zip;type=application/zip" \
+     http://gpb_chatbot-model-server_1:8000/models/core
