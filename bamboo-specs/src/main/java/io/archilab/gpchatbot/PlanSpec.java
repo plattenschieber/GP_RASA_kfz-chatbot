@@ -2,7 +2,6 @@ package io.archilab.gpchatbot;
 
 import com.atlassian.bamboo.specs.api.BambooSpec;
 import com.atlassian.bamboo.specs.api.builders.BambooKey;
-import com.atlassian.bamboo.specs.api.builders.BambooOid;
 import com.atlassian.bamboo.specs.api.builders.deployment.Deployment;
 import com.atlassian.bamboo.specs.api.builders.deployment.Environment;
 import com.atlassian.bamboo.specs.api.builders.deployment.ReleaseNaming;
@@ -40,23 +39,19 @@ public class PlanSpec {
 
   public Plan plan() {
     final Plan plan = new Plan(new Project()
-        .oid(new BambooOid("ky5ricqu8qv5"))
         .key(new BambooKey("CHAT"))
         .name("Chatbot"),
         "core-model-trainer",
         new BambooKey("CMT"))
-        .oid(new BambooOid("kxw2ardmf1my"))
         .pluginConfigurations(new ConcurrentBuilds()
             .useSystemWideDefault(false))
         .stages(new Stage("Default Stage")
             .jobs(new Job("Default Job",
                 new BambooKey("JOB1"))
-                .artifacts(
-                    new Artifact().name("docker-compose")
-                        .copyPattern("docker-compose.yaml")
-                        .location("./docker").shared(true).required(true))
-                .tasks(
-                    new VcsCheckoutTask()
+                .artifacts(new Artifact().name("docker-compose")
+                    .copyPattern("docker-compose.yaml")
+                    .location("./docker").shared(true).required(true))
+                .tasks(new VcsCheckoutTask()
                         .description("Checkout the repository")
                         .checkoutItems(new CheckoutItem()
                             .defaultRepository()),
