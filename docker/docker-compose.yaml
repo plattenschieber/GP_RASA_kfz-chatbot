@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  core-model-trainer:
+    image: docker.nexus.gpchatbot.archi-lab.io/chatbot/core-model-trainer:latest
+    networks:
+      - chatbot
+networks:
+  chatbot:
+    external: true

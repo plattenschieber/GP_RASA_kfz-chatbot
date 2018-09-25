@@ -7,6 +7,6 @@ Für die Verwendung in Docker sind folgende Befehle anzuwenden:
 docker build -t chatbot-model-trainer .
 ```
 ```bash
-docker run --rm --network=chatbot chatbot-model-trainer
+docker-compose -f ./docker/docker-compose.yaml up  
 ```
 Nach beendigung des Trainings schickt der Container einen Post request mit dem Modell an  http://gpb_chatbot-model-server_1:8000/models/core
