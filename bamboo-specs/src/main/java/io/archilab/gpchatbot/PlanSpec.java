@@ -51,6 +51,10 @@ public class PlanSpec {
         .stages(new Stage("Default Stage")
             .jobs(new Job("Default Job",
                 new BambooKey("JOB1"))
+                .artifacts(
+                    new Artifact().name("docker-compose")
+                        .copyPattern("docker-compose.yaml")
+                        .location("./docker").shared(true).required(true))
                 .tasks(
                     new VcsCheckoutTask()
                         .description("Checkout the repository")
@@ -88,7 +92,6 @@ public class PlanSpec {
                 .requirements(new Requirement(
                     "system.builder.command.nexus-cli"))))
         .linkedRepositories("chatbot-core-model-trainer (master)")
-
         .triggers(new BitbucketServerTrigger())
         .planBranchManagement(new PlanBranchManagement()
             .delete(new BranchCleanup())
@@ -113,10 +116,15 @@ public class PlanSpec {
             .autoIncrement(true))
         .environments(new Environment("Production")
             .tasks(new CleanWorkingDirectoryTask(),
+                new ArtifactDownloaderTask()
+                    .description("Download release contents")
+                    .artifacts(new DownloadItem()
+                        .allArtifacts(true)
+                        .path("./artifacts")),
                 new ScriptTask()
-                    .description("Deploy Docker container via docker-machine")
+                    .description("Deploy Docker stack via docker-machine")
                     .inlineBody(
-                        "eval $(docker-machine env gpchatbotprod)\ndocker run --rm \\\n  --network=chatbot \\\n  docker.nexus.gpchatbot.archi-lab.io/chatbot/core-model-trainer"))
+                        "eval $(docker-machine env gpchatbotprod)\ndocker stack deploy --with-registry-auth \\\n  -c ./artifacts/docker-compose.yaml \\\n  core-model-trainer"))
             .triggers(new AfterSuccessfulBuildPlanTrigger()));
     return deployment;
   }
