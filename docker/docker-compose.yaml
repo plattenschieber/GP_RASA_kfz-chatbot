@@ -5,6 +5,9 @@ services:
     image: docker.nexus.gpchatbot.archi-lab.io/chatbot/core-model-trainer:latest
     networks:
       - chatbot
+    deploy:
+      restart_policy:
+        condition: none
 networks:
   chatbot:
     external: true
