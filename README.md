@@ -2,7 +2,7 @@
 Chatbot für die Domain kfz
 
 ## Docker
-Das System kann in verschiedenen modi gestartet werden.
+Das System kann in verschiedenen modi gestartet werden.  
 *Lokal* - Trainiert mit der vorliegenden Domain und stellt das Modell über eine Schnittstelle bereit
 ```bash
  docker-compose -p gpb -f docker/docker-compose.yaml -f docker/docker-compose.local.yaml up -d
