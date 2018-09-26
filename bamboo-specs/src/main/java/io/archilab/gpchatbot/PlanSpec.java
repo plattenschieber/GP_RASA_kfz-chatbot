@@ -62,7 +62,7 @@ public class PlanSpec {
                         .description("Inject the commit hash variable")
                         .path("./commit-hash")
                         .namespace("inject")
-                        .scope(InjectVariablesScope.RESULT),
+                        .scope(InjectVariablesScope.RESULT))
                     .requirements(new Requirement(
                     "system.builder.command.nexus-cli"))))
         .linkedRepositories("kfz-chatbot (master)")
