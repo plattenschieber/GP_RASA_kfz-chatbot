@@ -41,8 +41,8 @@ public class PlanSpec {
     final Plan plan = new Plan(new Project()
         .key(new BambooKey("CHAT"))
         .name("Chatbot"),
-        "core-model-trainer",
-        new BambooKey("CMT"))
+        "kfz-chatbot",
+        new BambooKey("kfz"))
         .pluginConfigurations(new ConcurrentBuilds()
             .useSystemWideDefault(false))
         .stages(new Stage("Default Stage")
@@ -63,30 +63,9 @@ public class PlanSpec {
                         .path("./commit-hash")
                         .namespace("inject")
                         .scope(InjectVariablesScope.RESULT),
-                    new DockerBuildImageTask()
-                        .description("Build the Docker image")
-                        .imageName("docker.nexus.gpchatbot.archi-lab.io/chatbot/core-model-trainer")
-                        .useCache(true)
-                        .dockerfileInWorkingDir(),
-                    new ScriptTask().description(
-                        "Tag the Docker image with commit hash")
-                        .inlineBody(
-                            "docker tag docker.nexus.gpchatbot.archi-lab.io/chatbot/core-model-trainer docker.nexus.gpchatbot.archi-lab.io/chatbot/core-model-trainer:${bamboo.inject.commit-hash}"),
-                    new DockerPushImageTask()
-                        .customRegistryImage(
-                            "docker.nexus.gpchatbot.archi-lab.io/chatbot/core-model-trainer")
-                        .defaultAuthentication(),
-                    new DockerPushImageTask()
-                        .customRegistryImage(
-                            "docker.nexus.gpchatbot.archi-lab.io/chatbot/core-model-trainer:${bamboo.inject.commit-hash}")
-                        .defaultAuthentication(),
-                    new ScriptTask().description(
-                        "Remove old images from Nexus Docker repository")
-                        .inlineBody(
-                            "echo \"# Nexus Credentials\\nnexus_host = \\\"https://nexus.gpchatbot.archi-lab.io\\\"\\nnexus_username = \\\"bamboo\\\"\\nnexus_password = \\\"gpchatbot\\\"\\nnexus_repository = \\\"docker-hosted\\\"\" > .credentials\nnexus-cli image delete -name chatbot/core-model-trainer -keep 21"))
-                .requirements(new Requirement(
+                    .requirements(new Requirement(
                     "system.builder.command.nexus-cli"))))
-        .linkedRepositories("chatbot-core-model-trainer (master)")
+        .linkedRepositories("kfz-chatbot (master)")
         .triggers(new BitbucketServerTrigger())
         .planBranchManagement(new PlanBranchManagement()
             .delete(new BranchCleanup())
@@ -95,7 +74,7 @@ public class PlanSpec {
   }
 
   public PlanPermissions planPermission() {
-    final PlanPermissions planPermission = new PlanPermissions(new PlanIdentifier("CHAT", "CMT"))
+    final PlanPermissions planPermission = new PlanPermissions(new PlanIdentifier("CHAT", "kfz"))
         .permissions(new Permissions()
             .userPermissions("bamboo", PermissionType.EDIT, PermissionType.VIEW,
                 PermissionType.ADMIN, PermissionType.CLONE, PermissionType.BUILD)
@@ -105,8 +84,8 @@ public class PlanSpec {
   }
 
   public Deployment deployment() {
-    final Deployment deployment = new Deployment(new PlanIdentifier("CHAT", "CMT"),
-        "core-model-trainer-deployment")
+    final Deployment deployment = new Deployment(new PlanIdentifier("CHAT", "kfz"),
+        "kfz-chatbot-deployment")
         .releaseNaming(new ReleaseNaming("release-1")
             .autoIncrement(true))
         .environments(new Environment("Production")
@@ -119,13 +98,13 @@ public class PlanSpec {
                 new ScriptTask()
                     .description("Deploy Docker stack via docker-machine")
                     .inlineBody(
-                        "eval $(docker-machine env gpchatbotprod)\ndocker stack deploy --with-registry-auth \\\n  -c ./artifacts/docker-compose.yaml \\\n  core-model-trainer"))
+                        "eval $(docker-machine env gpchatbotprod)\ndocker stack deploy --with-registry-auth \\\n  -c ./artifacts/docker-compose.yaml \\\n  kfz-chatbot"))
             .triggers(new AfterSuccessfulBuildPlanTrigger()));
     return deployment;
   }
 
   public DeploymentPermissions deploymentPermission() {
-    final DeploymentPermissions deploymentPermission = new DeploymentPermissions("core-model-trainer-deployment")
+    final DeploymentPermissions deploymentPermission = new DeploymentPermissions("kfz-chatbot-deployment")
         .permissions(new Permissions()
             .userPermissions("bamboo", PermissionType.EDIT, PermissionType.VIEW)
             .loggedInUserPermissions(PermissionType.VIEW)
