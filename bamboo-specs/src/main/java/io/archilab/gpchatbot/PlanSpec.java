@@ -42,7 +42,7 @@ public class PlanSpec {
         .key(new BambooKey("CHAT"))
         .name("Chatbot"),
         "kfz-chatbot",
-        new BambooKey("kfz"))
+        new BambooKey("KFZ"))
         .pluginConfigurations(new ConcurrentBuilds()
             .useSystemWideDefault(false))
         .stages(new Stage("Default Stage")
@@ -84,7 +84,7 @@ public class PlanSpec {
   }
 
   public Deployment deployment() {
-    final Deployment deployment = new Deployment(new PlanIdentifier("CHAT", "kfz"),
+    final Deployment deployment = new Deployment(new PlanIdentifier("CHAT", "KFZ"),
         "kfz-chatbot-deployment")
         .releaseNaming(new ReleaseNaming("release-1")
             .autoIncrement(true))
