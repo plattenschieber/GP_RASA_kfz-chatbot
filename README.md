@@ -2,6 +2,11 @@
 Chatbot für die Domain kfz
 
 ## Docker
+Bauen des images mit:
+```bash
+docker build -t docker.nexus.gpchatbot.archi-lab.io/chatbot/kfz-chatbot .
+```
+
 Das System kann in verschiedenen modi gestartet werden.  
 *Lokal* - Trainiert mit der vorliegenden Domain und stellt das Modell über eine Schnittstelle bereit
 ```bash

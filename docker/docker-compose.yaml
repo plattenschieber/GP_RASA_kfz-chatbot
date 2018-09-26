@@ -2,7 +2,7 @@ version: '3'
 
 services:
   chatbot-core:
-    image: docker.nexus.gpchatbot.archi-lab.io/chatbot/core:latest
+    image: docker.nexus.gpchatbot.archi-lab.io/chatbot/kfz-chatbot:latest
     networks:
       - chatbot
     environment:
