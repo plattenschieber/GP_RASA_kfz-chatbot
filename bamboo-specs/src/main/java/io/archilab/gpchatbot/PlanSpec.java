@@ -41,8 +41,7 @@ public class PlanSpec {
     final Plan plan = new Plan(new Project()
         .key(new BambooKey("CHAT"))
         .name("Chatbot"),
-        "kfz-chatbot",
-        new BambooKey("KFZ"))
+        "kfz-chatbot")
         .pluginConfigurations(new ConcurrentBuilds()
             .useSystemWideDefault(false))
         .stages(new Stage("Default Stage")
