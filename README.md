@@ -1,9 +1,8 @@
-# Model-Trainer for Core
-Trainiert ein Modell für Rasa-Core, packt diese in ein zip und schickt das ganze an einen server, der das Modell bereitstellt.
+# KFZ-Chatbot
+CHatbot für die Domain kfz mit allen dafür benötigten elementen
 
 ## Docker
 Für die Verwendung in Docker sind folgende Befehle anzuwenden:
 ```bash
-docker-compose -f ./docker/docker-compose.yaml up  
+ docker-compose -p gpb -f docker/docker-compose.yaml -f docker/docker-compose.local.yaml up -d
 ```
-Nach beendigung des Trainings schickt der Container einen Post request mit dem Modell an  http://gpb_chatbot-model-server_1:8000/models/core

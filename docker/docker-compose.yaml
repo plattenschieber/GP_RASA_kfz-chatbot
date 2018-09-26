@@ -1,17 +1,13 @@
 version: '3'
 
 services:
-  core-model-trainer:
+  chatbot-core:
     image: docker.nexus.gpchatbot.archi-lab.io/chatbot/core:latest
     networks:
       - chatbot
     environment:
       - ENABLE_DEBUG=true
       - ENDPOINTS_CONFIG_FILE=config/endpoints.prod.yaml
-      - MODE=offline_trainer
-    deploy:
-      restart_policy:
-        condition: none
 networks:
   chatbot:
     external: true
