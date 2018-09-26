@@ -42,7 +42,7 @@ public class PlanSpec {
         .key(new BambooKey("CHAT"))
         .name("Chatbot"),
         "kfz-chatbot",
-        new BambooKey("KFZ"))
+        "KFZ")
         .pluginConfigurations(new ConcurrentBuilds()
             .useSystemWideDefault(false))
         .stages(new Stage("Default Stage")
