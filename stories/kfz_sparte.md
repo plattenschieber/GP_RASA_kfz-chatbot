@@ -15,15 +15,14 @@
   - action_ask_contact_details
   - slot{"surname":"mustermann"}
   - slot{"requested_slot":"street_address"} 
-* set_street_address{"street_address":""}
+* set_street_address{"street_address":"", "number":""}
   - action_ask_contact_details
-  - slot{"street_address":"musterstrasse 11"}
-  - action_save_street_number
-  - slot{"requested_slot":"address_zip_code"}
+  - slot{"street_address":"musterstrasse", "number":"11"}
+  - slot{"requested_slot":"number"}
   - utter_ask_address_zip_code
-* set_zip_code{"address_zip_code":""} <!-- Regex nötig -->
+* set_zip_code{"number":""} <!-- Regex nötig -->
   - action_ask_contact_details 
-  - slot{"address_zip_code":"12345"}
+  - slot{"number":""}
   - slot{"requested_slot":"address_city"}
 * set_city{"address_city":""} <!-- Regex nötig -->
   - action_ask_contact_details
@@ -62,18 +61,18 @@
   - action_ask_liability_contact_data
 * set_surname_insured_party{"surname_insured_party":""}
   - slot{"surname_insured_party":"sonnenschein"}
-  - slot{"requested_slot":"insurance_number"}
+  - slot{"requested_slot":"number"}
   - action_ask_liability_contact_data
   - utter_ask_insurance_number
-* set_insurance_number{"insurance_number":""}
-  - slot{"insurance_number":"1234567"}
+* set_insurance_number{"number":""}
+  - slot{"number":"1234567"}
   - slot{"requested_slot":"license_plate"}
   - action_ask_kfz
 * set_license_plate{"license_plate":""}
   - slot{"license_plate":"XXXX1234"}
-  - slot{"requested_slot":"date_of_damage"}
+  - slot{"requested_slot":"time"}
   - action_ask_kfz
-* set_date_of_damage{"date_of_damage":""}
+* set_date_of_damage{"time":""}
   - slot{"date_of_damage":"12.12.2012"}
   - slot{"requested_slot":"cause_of_damage"}
   - action_ask_kfz
@@ -95,10 +94,10 @@
   - action_ask_is_callback_wanted
 * confirm
   - slot{"is_callback_wanted":true}
-  - slot{"requested_slot":"callback_phone_number"}
+  - slot{"requested_slot":"phone-number"}
   - action_ask_callback_information
-* set_callback_phone_number{"callback_phone_number":""}
-  - slot{"callback_phone_number":"2345678"}
+* set_callback_phone_number{"phone-number":""}
+  - slot{"phone-number":"2345678"}
   - slot{"requested_slot":"reachability_date"}
   - action_ask_callback_information
 * set_date_and_time_reachability{"reachability_date":""}
