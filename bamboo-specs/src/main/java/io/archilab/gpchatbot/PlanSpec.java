@@ -148,7 +148,7 @@ public class PlanSpec {
 
   public EnvironmentPermissions environmentPermission1() {
     final EnvironmentPermissions environmentPermission1 = new EnvironmentPermissions(
-        "core-model-trainer-deployment")
+        "kfz-chatbot-deployment")
         .environmentName("Production")
         .permissions(new Permissions()
             .userPermissions("bamboo", PermissionType.EDIT, PermissionType.VIEW,
