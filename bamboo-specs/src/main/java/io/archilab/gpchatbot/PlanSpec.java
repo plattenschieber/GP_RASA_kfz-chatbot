@@ -70,9 +70,31 @@ public class PlanSpec {
                         .description("Inject the commit hash variable")
                         .path("./commit-hash")
                         .namespace("inject")
-                        .scope(InjectVariablesScope.RESULT))
+                        .scope(InjectVariablesScope.RESULT),
+                    new DockerBuildImageTask()
+                        .description("Build the Docker image")
+                        .imageName("docker.nexus.gpchatbot.archi-lab.io/chatbot/kfz-chatbot")
+                        .useCache(true)
+                        .dockerfileInWorkingDir(),
+                    new ScriptTask().description(
+                        "Tag the Docker image with commit hash")
+                        .inlineBody(
+                            "docker tag docker.nexus.gpchatbot.archi-lab.io/chatbot/kfz-chatbot docker.nexus.gpchatbot.archi-lab.io/chatbot/kfz-chatbot:${bamboo.inject.commit-hash}"),
+                    new DockerPushImageTask()
+                        .customRegistryImage(
+                            "docker.nexus.gpchatbot.archi-lab.io/chatbot/kfz-chatbot")
+                        .defaultAuthentication(),
+                    new DockerPushImageTask()
+                        .customRegistryImage(
+                            "docker.nexus.gpchatbot.archi-lab.io/chatbot/kfz-chatbot:${bamboo.inject.commit-hash}")
+                        .defaultAuthentication(),
+                    new ScriptTask().description(
+                        "Remove old images from Nexus Docker repository")
+                        .inlineBody(
+                            "echo \"# Nexus Credentials\\nnexus_host = \\\"https://nexus.gpchatbot.archi-lab.io\\\"\\nnexus_username = \\\"bamboo\\\"\\nnexus_password = \\\"gpchatbot\\\"\\nnexus_repository = \\\"docker-hosted\\\"\" > .credentials\nnexus-cli image delete -name chatbot/kfz-chatbot -keep 21"))
                     .requirements(new Requirement(
-                    "system.builder.command.nexus-cli"))))
+                        "system.builder.command.nexus-cli"))
+                ))
         .linkedRepositories("kfz-chatbot (master)")
         .triggers(new BitbucketServerTrigger())
         .planBranchManagement(new PlanBranchManagement()
@@ -106,11 +128,11 @@ public class PlanSpec {
                 new ScriptTask()
                     .description("Deploy Docker stack via docker-machine")
                     .inlineBody(
-                        "eval $(docker-machine env gpchatbotprod)\ndocker stack deploy --with-registry-auth \\\n  -c ./artifacts/docker-compose.yaml -c docker/docker-compose.trainer.yaml \\\n  kfz-chatbot"),
+                        "eval $(docker-machine env gpchatbotprod)\ndocker stack deploy --with-registry-auth \\\n  -c ./artifacts/docker-compose.yaml -c ./artifacts/docker-compose.trainer.yaml \\\n  kfz-chatbot"),
                 new ScriptTask()
                     .description("Deploy Docker stack via docker-machine for training")
                     .inlineBody(
-                        "eval $(docker-machine env gpchatbotprod)\ndocker stack deploy --with-registry-auth \\\n  -c ./artifacts/docker-compose.yaml -c docker/docker-compose.interactive.yaml \\\n  core-interactive-training"))
+                        "eval $(docker-machine env gpchatbotprod)\ndocker stack deploy --with-registry-auth \\\n  -c ./artifacts/docker-compose.yaml -c ./artifacts/docker-compose.interactive.yaml \\\n  core-interactive-training"))
             .triggers(new AfterSuccessfulBuildPlanTrigger()));
     return deployment;
   }

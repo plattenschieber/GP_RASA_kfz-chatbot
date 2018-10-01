@@ -2,12 +2,12 @@
 * greet
   - utter_greet
   - action_ask_contact_details
-  - slot{"requested_slot" : "form_of_address"}
+  - slot{"requested_slot":"form_of_address"}
 * set_form_of_address{"form_of_address":""}
   - action_ask_contact_details
   - slot{"form_of_address":"herr"}
   - slot{"requested_slot":"first_name"}
-* set_first_name{"first_name":""} <!-- Regex nötig -->
+* set_first_name{"first_name":""}
   - action_ask_contact_details
   - slot{"first_name":"max"}
   - slot{"requested_slot":"surname"}
@@ -15,12 +15,15 @@
   - action_ask_contact_details
   - slot{"surname":"mustermann"}
   - slot{"requested_slot":"street_address"} 
-* set_street_address{"street_address":""} <!-- Regex nötig -->
+* set_street_address{"street_address":""}
   - action_ask_contact_details
   - slot{"street_address":"musterstrasse 11"}
-  - slot{"requested_slot":"number"}
-* set_zip_code{"number":""} <!-- Regex nötig -->
-  - action_ask_contact_details
+  - action_save_street_number
+  - slot{"requested_slot":"address_zip_code"}
+  - utter_ask_address_zip_code
+* set_zip_code{"address_zip_code":""} <!-- Regex nötig -->
+  - action_ask_contact_details 
+  - slot{"address_zip_code":"12345"}
   - slot{"requested_slot":"address_city"}
 * set_city{"address_city":""} <!-- Regex nötig -->
   - action_ask_contact_details
@@ -108,15 +111,11 @@
 
 ## Allgemeine KFZ fragen stellen
 > ask_kfz_questions
-* set_license_plate{"license_plate":""}
+* set_license_plate{"license_plate":""} OR set_license_plate{"license_plate":"", "number":""}
   - action_ask_kfz
-  - slot{"license_plate":"XXXX1234"}
-  - slot{"requested_slot":"date_of_damage"}
-* set_date_of_damage{"date_of_damage":""}
-  - action_ask_kfz
-  - slot{"date_of_damage":"12.12.2012"}
-  - slot{"requested_slot":"cause_of_damage"}
-* set_time_of_damage{"time_of_damage":""}
+  - slot{"license_plate":"XXXX1234", "number":""}
+  - slot{"requested_slot":"time"}
+* set_date_of_damage{"time":""}
   - action_ask_kfz
   - slot{"date_of_damage":"12.12.2012"}
   - slot{"requested_slot":"cause_of_damage"}

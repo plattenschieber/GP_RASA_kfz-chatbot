@@ -4,6 +4,7 @@ intents:
  - set_first_name
  - set_surname
  - set_street_address
+ - set_street_number
  - set_zip_code
  - set_city
  - set_phone_number
@@ -101,6 +102,7 @@ actions:
  - action_ask_insured_party_driver
  - action_ask_callback_information
  - action_ask_insured_party_driver_informations
+ - action_save_street_number
 
 entities:
  - phone-number
@@ -114,6 +116,7 @@ entities:
  - first_name
  - surname
  - street_address
+ - street_number
  - address_zip_code
  - address_city
  - business_affair
@@ -162,6 +165,7 @@ entities:
  - phone_number_if_workshop_victim
  - someone_injured
  - entity_PER
+ - entity_LOC
 
 slots:
   requested_slot:
@@ -185,6 +189,8 @@ slots:
   surname:
     type: text
   street_address:
+    type: text
+  street_number:
     type: text
   address_zip_code:
     type: text
@@ -302,7 +308,7 @@ templates:
    - text: "Hi, ich bin Zoe"
  utter_ask_form_of_address:
    - text: "Wie darf ich Sie ansprechen?"
- utter_ask_PER:
+ utter_ask_first_name:
    - text: "Wie lautet Ihr Vorname?"
  utter_ask_surname:
    - text: "Dankeschön. Wie lautet Ihr Nachname?"
