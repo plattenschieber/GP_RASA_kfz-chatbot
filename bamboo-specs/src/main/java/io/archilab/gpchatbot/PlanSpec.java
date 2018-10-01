@@ -48,13 +48,14 @@ public class PlanSpec {
         .stages(new Stage("Default Stage")
             .jobs(new Job("Default Job",
                 new BambooKey("JOB1"))
-                .artifacts(new Artifact().name("docker-compose")
+                .artifacts(
+                  new Artifact().name("docker-compose")
                     .copyPattern("docker-compose.yaml")
                     .location("./docker").shared(true).required(true),
-                .artifacts(new Artifact().name("docker-compose.trainer")
+                  new Artifact().name("docker-compose.trainer")
                     .copyPattern("docker-compose.trainer.yaml")
                     .location("./docker").shared(true).required(true),
-                .artifacts(new Artifact().name("docker-compose.interactive")
+                  new Artifact().name("docker-compose.interactive")
                     .copyPattern("docker-compose.interactive.yaml")
                     .location("./docker").shared(true).required(true),
                     )
