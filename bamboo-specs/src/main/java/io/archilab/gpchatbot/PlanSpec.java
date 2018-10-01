@@ -128,11 +128,11 @@ public class PlanSpec {
                 new ScriptTask()
                     .description("Deploy Docker stack via docker-machine")
                     .inlineBody(
-                        "eval $(docker-machine env gpchatbotprod)\ndocker stack deploy --with-registry-auth \\\n  -c ./artifacts/docker-compose.yaml -c docker/docker-compose.trainer.yaml \\\n  kfz-chatbot"),
+                        "eval $(docker-machine env gpchatbotprod)\ndocker stack deploy --with-registry-auth \\\n  -c ./artifacts/docker-compose.yaml -c ./artifacts/docker-compose.trainer.yaml \\\n  kfz-chatbot"),
                 new ScriptTask()
                     .description("Deploy Docker stack via docker-machine for training")
                     .inlineBody(
-                        "eval $(docker-machine env gpchatbotprod)\ndocker stack deploy --with-registry-auth \\\n  -c ./artifacts/docker-compose.yaml -c docker/docker-compose.interactive.yaml \\\n  core-interactive-training"))
+                        "eval $(docker-machine env gpchatbotprod)\ndocker stack deploy --with-registry-auth \\\n  -c ./artifacts/docker-compose.yaml -c ./artifacts/docker-compose.interactive.yaml \\\n  core-interactive-training"))
             .triggers(new AfterSuccessfulBuildPlanTrigger()));
     return deployment;
   }
