@@ -20,3 +20,7 @@ Das System kann in verschiedenen modi gestartet werden.
 ```bash
  docker-compose -p gpb -f docker/docker-compose.yaml -f docker/docker-compose.interactive.yaml up -d
 ```
+Sollte die Fehlermeldung erscheinen das, dass Netzwerk "chatbot" nicht existiert kann dies mit folgendem Befehl behoben werden:
+```bash
+docker network create chatbot
+```
