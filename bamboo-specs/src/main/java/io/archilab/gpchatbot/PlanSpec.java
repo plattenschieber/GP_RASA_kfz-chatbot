@@ -57,7 +57,7 @@ public class PlanSpec {
                     .location("./docker").shared(true).required(true),
                   new Artifact().name("docker-compose.interactive")
                     .copyPattern("docker-compose.interactive.yaml")
-                    .location("./docker").shared(true).required(true),
+                    .location("./docker").shared(true).required(true)
                     )
                 .tasks(new VcsCheckoutTask()
                         .description("Checkout the repository")
