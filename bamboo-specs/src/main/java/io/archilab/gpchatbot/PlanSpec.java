@@ -50,7 +50,14 @@ public class PlanSpec {
                 new BambooKey("JOB1"))
                 .artifacts(new Artifact().name("docker-compose")
                     .copyPattern("docker-compose.yaml")
-                    .location("./docker").shared(true).required(true))
+                    .location("./docker").shared(true).required(true),
+                .artifacts(new Artifact().name("docker-compose.trainer")
+                    .copyPattern("docker-compose.trainer.yaml")
+                    .location("./docker").shared(true).required(true),
+                .artifacts(new Artifact().name("docker-compose.interactive")
+                    .copyPattern("docker-compose.interactive.yaml")
+                    .location("./docker").shared(true).required(true),
+                    )
                 .tasks(new VcsCheckoutTask()
                         .description("Checkout the repository")
                         .checkoutItems(new CheckoutItem()
@@ -98,7 +105,11 @@ public class PlanSpec {
                 new ScriptTask()
                     .description("Deploy Docker stack via docker-machine")
                     .inlineBody(
-                        "eval $(docker-machine env gpchatbotprod)\ndocker stack deploy --with-registry-auth \\\n  -c ./artifacts/docker-compose.yaml -c docker/docker-compose.trainer.yaml \\\n  kfz-chatbot"))
+                        "eval $(docker-machine env gpchatbotprod)\ndocker stack deploy --with-registry-auth \\\n  -c ./artifacts/docker-compose.yaml -c docker/docker-compose.trainer.yaml \\\n  kfz-chatbot"),
+                new ScriptTask()
+                    .description("Deploy Docker stack via docker-machine")
+                    .inlineBody(
+                        "eval $(docker-machine env gpchatbotprod)\ndocker stack deploy --with-registry-auth \\\n  -c ./artifacts/docker-compose.yaml -c docker/docker-compose.interactive.yaml \\\n  core-interactive-training"))
             .triggers(new AfterSuccessfulBuildPlanTrigger()));
     return deployment;
   }

@@ -7,4 +7,4 @@ services:
       - ENDPOINTS_CONFIG_FILE=config/endpoints.local.yaml
       - MODE=online_trainer
     ports:
-      - "5005:5005"
+      - "5006:5005"
