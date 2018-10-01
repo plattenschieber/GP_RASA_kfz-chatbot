@@ -4,7 +4,7 @@ services:
   chatbot-core:
     environment:
       - SOCKET_PORT=5005
-      - ENDPOINTS_CONFIG_FILE=config/endpoints.local.yaml
+      - ENDPOINTS_CONFIG_FILE=config/endpoints.prod.yaml
       - MODE=online_trainer
     ports:
       - "5006:5005"
