@@ -32,9 +32,10 @@ entities:
  - time #duckling entity for time
  - phone-number #duckling entity for phone-numbers
  - number #duckling entity for number
+ - crf-phone-number #phone number slot for ner-crf
  - first_name
  - last_name
- - telephone
+ - user_phone_number #target slot for the user phone number
  - select_action
 
 slots:
@@ -50,10 +51,10 @@ slots:
  last_name:
     initial_value: null
     type: text
- telephone:
+ crf-phone-number:
     initial_value: null
     type: text
- phone-number: #durckling phone-number Slot
+ phone-number: #duckling phone-number Slot
    type: text
  user_phone_number: #phone-number of chat partner
    type: text
