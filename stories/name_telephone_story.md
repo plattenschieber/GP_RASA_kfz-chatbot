@@ -1,6 +1,7 @@
-## sample story
-* greet
-  - utter_greet
+## Enter What ToDo NAME
+> enter_what_todo
+* what_todo{"select_action": "name"}
+  - slot{"select_action": "name"}
   - utter_ask_name
 > enter_name
 

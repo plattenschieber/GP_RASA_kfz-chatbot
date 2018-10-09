@@ -3,11 +3,13 @@ intents:
  - goodbye
  - report_damage
  - inform #Informs the bot with new user data
+ - what_todo
  - confirm
  - deny
 
 actions:
   - utter_default
+  - utter_ask_whattodo
   - utter_greet
   - utter_name
   - utter_ask_telephone
@@ -30,6 +32,7 @@ entities:
   - telephone
   - number
   - phone-number
+  - select_action
 
 slots:
   time: #duckling time Slot
@@ -47,12 +50,17 @@ slots:
   telephone:
     initial_value: null
     type: text
+  select_action:
+    type: categorical
+    initial_value: name
+    values:
+      - report_damage
+      - name
+      - date
 
 templates:
-  utter_default:
-    - text: "Leider habe ich Sie nicht verstanden."
-  utter_greet:
-    - text: "Hi, ich bin Zoe"
+  utter_ask_whattodo:
+    - text: "Wie kann ich dir helfen? Du kannst wählen zwischen \"Schaden melden\", \"Name eintragen\" oder \"Datum testen\"."
   utter_name:
     - text: "Hey, {first_name} {last_name} schön dich kennenzulernen!"
   utter_first_name:
