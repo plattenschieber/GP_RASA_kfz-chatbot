@@ -2,6 +2,7 @@
 > enter_what_todo
 * what_todo{"select_action": "report_damage"}
   - slot{"select_action": "report_damage"}
+  - utter_be_nice
   - utter_ask_name
 > enter_name
 

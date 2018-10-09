@@ -65,7 +65,6 @@ slots:
     - call
     - report_damage
 
-
 templates:
   utter_default:
     - text: "Leider habe ich Sie nicht verstanden."
@@ -76,10 +75,11 @@ templates:
   utter_name:
     - text: "Es freut mich Sie kennenzulernen {first_name} {last_name}"
   utter_ask_name:
-    - text: "Zur verarbeitung benötigen wir Ihren Namen, stellen Sie sich bitte vor."
-    - text: "Wir benötigen Ihren Namen, wie heißen Sie?"
+    - text: "Zur verarbeitung benötigen ich Ihren Namen, stellen Sie sich bitte vor."
+    - text: "ich benötigen Ihren Namen, wie heißen Sie?"
   utter_be_nice:
-    - text: "Es freut mich Sie kennen zu lernen."
+    - text: "Ich hoffe es geht Ihnen gut! Ich benötigte nun ein paar Daten um den Schaden auf zu nehmen."
+    - text: "Ich hoffe es ist alles gut bei Ihnen! Ich benötigte nun ein paar Daten um den Schaden auf zu nehmen."
   utter_restart:
     - text: "Es tut mir leid, dass es Probleme gab. Das Gespräch wurde zurückgesetzt."
     - text: "Das Gespräch wurde neu gestartet"
@@ -101,9 +101,9 @@ templates:
   utter_confirm_phone_number:
     - text: "Lautet Ihre Telefonnummer {user_phone_number}?"
   utter_ask_what_todo:
-    - text: "Wie kann ich dir weiter helfen?"
+    - text: "Wie kann ich Ihnen weiter helfen?"
   utter_show_options:
-    - text: "Sie können zwischen \"Schaden melden\" und \"ANruf vereinbaren\" wählen."
+    - text: "Sie können zwischen \"Schaden melden\" und \"Anruf vereinbaren\" wählen."
   utter_ask_first_name:
     - text: "Wie lautet Ihr Vorname?"
   utter_ask_last_name:
