@@ -19,6 +19,8 @@ actions:
  - utter_say_time
  - utter_ask_time
  - utter_ask_callback_time
+ - utter_ask_last_name
+ - utter_ask_first_name
  - utter_confirm_callback_time
  - utter_goodbye
  - utter_ask_phone_number
@@ -105,3 +107,7 @@ templates:
     - text: "Lautet Ihre Telefonnummer {user_phone_number}?"
   utter_ask_what_todo:
     - text: "Wie kann ich dir weiter helfen?\n Du kannst wählen zwischen \"Namen eingeben\", \"Datum eingeben\", \"Nummer eingeben\" oder \"Schaden melden\"."
+  utter_ask_first_name:
+    - text: "Wie lautet dein Vorname?"
+  utter_ask_last_name:
+    - text: "Wie lautet dein Nachname?"
