@@ -88,9 +88,8 @@ templates:
   utter_goodbye:
     - text: "Vielen Dank, schönen Tag noch!"
     - text: "Danke für Ihre Zeit. Einen schönen Tag noch!"
-
- utter_ask_phone_number:
-   - text: "Wie lautet Ihre Telefonnummer?"
-   - text: "Unter welcher Telefonnummer können wir Sie am besten erreichen?"
- utter_confirm_phone_number:
-   - text: "Lautet Ihre Telefonnummer {user_phone_number}?"
+  utter_ask_phone_number:
+    - text: "Wie lautet Ihre Telefonnummer?"
+    - text: "Unter welcher Telefonnummer können wir Sie am besten erreichen?"
+  utter_confirm_phone_number:
+    - text: "Lautet Ihre Telefonnummer {user_phone_number}?"
