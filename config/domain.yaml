@@ -7,46 +7,81 @@ intents:
  - deny
 
 actions:
- - utter_default
- - utter_greet
- - utter_say_time
- - utter_ask_time
- - utter_ask_callback_time
- - utter_confirm_callback_time
- - utter_goodbye
- - action_save_damage_time
- - action_save_callback_time
+  - utter_default
+  - utter_greet
+  - utter_name
+  - utter_ask_telephone
+  - utter_telephone
+  - utter_ask_name
+  - utter_last_name
+  - utter_first_name
+  - utter_say_time
+  - utter_ask_time
+  - utter_ask_callback_time
+  - utter_confirm_callback_time
+  - utter_goodbye
+  - action_save_damage_time
+  - action_save_callback_time
 
 entities:
- - time #duckling entity for time
- - first_name #dummy
+  - time #duckling entity for time
+  - first_name
+  - last_name
+  - telephone
+  - number
+  - phone-number
 
 slots:
- time: #duckling time Slot
-   type: text
- damage_time:
-   type: text
- callback_time:
-   type: text
+  time: #duckling time Slot
+    type: text
+  damage_time:
+    type: text
+  callback_time:
+    type: text
+  first_name:
+    initial_value: null
+    type: text
+  last_name:
+    initial_value: null
+    type: text
+  telephone:
+    initial_value: null
+    type: text
 
 templates:
- utter_restart:
-   - text: "Es tut mir leid, dass es Probleme gab. Das Gespräch wurde zurückgesetzt."
-   - text: "Das Gespräch wurde neu gestartet"
-   - text: "Die Unterhaltung wird neu gestartet"
- utter_default:
-   - text: "Leider habe ich Sie nicht verstanden."
-   - text: "Ich habe Ihre Antwort leider nicht verstanden."
- utter_greet:
-   - text: "Hi, ich bin Zoe"
- utter_ask_time:
-   - text: "Wann wurde ihr Schaden verursacht?"
- utter_say_time:
-   - text: "Der Schaden wurde am {damage_time} verursacht"
- utter_ask_callback_time:
-   - text: "Wann können wir Sie erreichen um Weiteres zu klären?"
- utter_confirm_callback_time:
-   - text: "Am {callback_time} können wir Sie erreichen?"
- utter_goodbye:
-   - text: "Vielen Dank, schönen Tag noch!"
-   - text: "Danke für Ihre Zeit. Einen schönen Tag noch!"
+  utter_default:
+    - text: "Leider habe ich Sie nicht verstanden."
+  utter_greet:
+    - text: "Hi, ich bin Zoe"
+  utter_name:
+    - text: "Hey, {first_name} {last_name} schön dich kennenzulernen!"
+  utter_first_name:
+    - text: "Hey, {first_name} schön dich kennenzulernen!"
+  utter_last_name:
+    - text: "Hey, {last_name} schön dich kennenzulernen!"
+  utter_telephone:
+    - text: "Okay, ich merke mir die Nummer: {telephone}."
+  utter_ask_name:
+    - text: "Stell dich doch bitte mit Namen vor."
+  utter_ask_telephone:
+    - text: "Wie ist deine Telefonnummer?"
+  utter_restart:
+    - text: "Es tut mir leid, dass es Probleme gab. Das Gespräch wurde zurückgesetzt."
+    - text: "Das Gespräch wurde neu gestartet"
+    - text: "Die Unterhaltung wird neu gestartet"
+  utter_default:
+    - text: "Leider habe ich Sie nicht verstanden."
+    - text: "Ich habe Ihre Antwort leider nicht verstanden."
+  utter_greet:
+    - text: "Hi, ich bin Zoe"
+  utter_ask_time:
+    - text: "Wann wurde ihr Schaden verursacht?"
+  utter_say_time:
+    - text: "Der Schaden wurde am {damage_time} verursacht"
+  utter_ask_callback_time:
+    - text: "Wann können wir Sie erreichen um Weiteres zu klären?"
+  utter_confirm_callback_time:
+    - text: "Am {callback_time} können wir Sie erreichen?"
+  utter_goodbye:
+    - text: "Vielen Dank, schönen Tag noch!"
+    - text: "Danke für Ihre Zeit. Einen schönen Tag noch!"

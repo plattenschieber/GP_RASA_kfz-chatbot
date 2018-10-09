@@ -1,0 +1,35 @@
+## sample story
+* greet
+  - utter_greet
+  - utter_ask_name
+> enter_name
+
+## Enter Name
+> enter_name
+* inform{"first_name":"", "last_name": ""}
+  - slot{"first_name":"", "last_name": ""} 
+  - utter_name
+  - utter_ask_telephone
+> enter_telephone
+
+## Enter First_Name
+> enter_name  
+* inform{"first_name": ""}
+  - slot{"first_name":""}
+  - utter_first_name
+  - utter_ask_telephone
+> enter_telephone
+  
+## Enter Last_Name
+> enter_name
+* inform{"last_name": ""}
+  - slot{"last_name": ""}
+  - utter_last_name
+  - utter_ask_telephone
+> enter_telephone
+
+## Enter telephone number
+> enter_telephone
+* inform{"telephone":""}
+ - slot{"telephone":""}
+ - utter_telephone 
