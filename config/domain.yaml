@@ -1,6 +1,11 @@
 intents:
  - greet
+ - goodbye
+ - report_damage
  - inform #Informs the bot with new user data
+ - confirm
+ - deny
+ - what_todo
 
 actions:
  - utter_default
@@ -9,11 +14,38 @@ actions:
  - utter_ask_house_number
  - utter_ask_street
  - utter_ask_zipcode
+ - utter_name
+ - utter_ask_telephone
+ - utter_telephone
+ - utter_ask_name
+ - utter_last_name
+ - utter_first_name
+ - utter_say_time
+ - utter_ask_time
+ - utter_ask_callback_time
+ - utter_ask_last_name
+ - utter_ask_first_name
+ - utter_confirm_callback_time
+ - utter_goodbye
+ - utter_ask_phone_number
+ - utter_confirm_phone_number
+ - utter_ask_what_todo
+ - action_save_damage_time
+ - action_save_callback_time
+ - action_save_user_phone_number
  - action_safe_street_address
 
 entities:
  - street
  - house_number
+ - time #duckling entity for time
+ - phone-number #duckling entity for phone-numbers
+ - number #duckling entity for number
+ - crf-phone-number #phone number slot for ner-crf
+ - first_name
+ - last_name
+ - user_phone_number #target slot for the user phone number
+ - select_action
 
 slots:
  street:
@@ -22,17 +54,82 @@ slots:
    type: text
  street_address:
    type: text
+ time: #duckling time Slot
+   type: text
+ damage_time:
+   type: text
+ callback_time:
+   type: text
+ first_name:
+    initial_value: null
+    type: text
+ last_name:
+    initial_value: null
+    type: text
+ crf-phone-number:
+    initial_value: null
+    type: text
+ phone-number: #duckling phone-number Slot
+   type: text
+ user_phone_number: #phone-number of chat partner
+   type: text
+ select_action:
+   type: categorical
+   values:
+    - date
+    - name
+    - report_damage
+    - phone
 
 templates:
- utter_default:
-   - text: "Leider habe ich Sie nicht verstanden."
- utter_greet:
-   - text: "Hi, ich bin Zoe"
- utter_ask_street_address:
-   - text: "Koennen Sie mir Ihre Strassenadresse verraten?"
- utter_ask_house_number:
-   - text: "Danke, und wie lautet Ihre Hausnummer nochmal?"
- utter_ask_street:
-   - text: "Danke, und in welcher Strasse wohnen Sie?"
- utter_ask_zipcode:
-   - text: "ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE"
+  utter_ask_street_address:
+    - text: "Koennen Sie mir Ihre Strassenadresse verraten?"
+  utter_ask_house_number:
+    - text: "Danke, und wie lautet Ihre Hausnummer nochmal?"
+  utter_ask_street:
+    - text: "Danke, und in welcher Strasse wohnen Sie?"
+  utter_ask_zipcode:
+    - text: "ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE"
+  utter_default:
+    - text: "Leider habe ich Sie nicht verstanden."
+    - text: "Ich habe Ihre Antwort leider nicht verstanden."
+  utter_greet:
+    - text: "Hi, ich bin Zoe"
+  utter_name:
+    - text: "Hey, {first_name} {last_name} schön dich kennenzulernen!"
+  utter_first_name:
+    - text: "Hey, {first_name} schön dich kennenzulernen!"
+  utter_last_name:
+    - text: "Hey, {last_name} schön dich kennenzulernen!"
+  utter_telephone:
+    - text: "Okay, ich merke mir die Nummer: {telephone}."
+  utter_ask_name:
+    - text: "Stell dich doch bitte mit Namen vor."
+  utter_ask_telephone:
+    - text: "Wie ist deine Telefonnummer?"
+  utter_restart:
+    - text: "Es tut mir leid, dass es Probleme gab. Das Gespräch wurde zurückgesetzt."
+    - text: "Das Gespräch wurde neu gestartet"
+    - text: "Die Unterhaltung wird neu gestartet"
+  utter_ask_time:
+    - text: "Wann wurde ihr Schaden verursacht?"
+  utter_say_time:
+    - text: "Der Schaden wurde am {damage_time} verursacht"
+  utter_ask_callback_time:
+    - text: "Wann können wir Sie erreichen um Weiteres zu klären?"
+  utter_confirm_callback_time:
+    - text: "Am {callback_time} können wir Sie erreichen?"
+  utter_goodbye:
+    - text: "Vielen Dank, schönen Tag noch!"
+    - text: "Danke für Ihre Zeit. Einen schönen Tag noch!"
+  utter_ask_phone_number:
+    - text: "Wie lautet Ihre Telefonnummer?"
+    - text: "Unter welcher Telefonnummer können wir Sie am besten erreichen?"
+  utter_confirm_phone_number:
+    - text: "Lautet Ihre Telefonnummer {user_phone_number}?"
+  utter_ask_what_todo:
+    - text: "Wie kann ich dir weiter helfen?\n Du kannst wählen zwischen \"Namen eingeben\", \"Datum eingeben\", \"Nummer eingeben\" oder \"Schaden melden\"."
+  utter_ask_first_name:
+    - text: "Wie lautet dein Vorname?"
+  utter_ask_last_name:
+    - text: "Wie lautet dein Nachname?"
