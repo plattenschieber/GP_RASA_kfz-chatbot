@@ -1,10 +1,11 @@
-## Nach Telefonnummer fragen
+## Rückruf vereinbaren
 > enter_what_todo
-* what_todo{"select_action": "phone"}
- - slot{"select_action": "phone"}
+* what_todo{"select_action": "call"}
+ - slot{"select_action": "call"}
  - utter_ask_phone_number
 > ask_phone_number 
- 
+
+## Nach Telefonnummer fragen 
 > ask_phone_number
 * inform{"phone-number":""}
  - action_save_user_phone_number
