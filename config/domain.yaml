@@ -22,6 +22,7 @@ actions:
  - utter_ask_last_name
  - utter_ask_first_name
  - utter_confirm_callback_time
+ - utter_be_nice
  - utter_goodbye
  - utter_ask_phone_number
  - utter_confirm_phone_number
@@ -73,18 +74,18 @@ templates:
     - text: "Ich habe Ihre Antwort leider nicht verstanden."
   utter_greet:
     - text: "Hi, ich bin Zoe"
+    - text: "Zzzzoe in da HOUSE"
   utter_name:
-    - text: "Hey, {first_name} {last_name} schön dich kennenzulernen!"
+    - text: "Hey, {first_name} {last_name} freut mich Sie kennenzulernen!"
   utter_first_name:
-    - text: "Hey, {first_name} schön dich kennenzulernen!"
+    - text: "Alles klar, Ihr Vorname ist {first_name}"
   utter_last_name:
-    - text: "Hey, {last_name} schön dich kennenzulernen!"
-  utter_telephone:
-    - text: "Okay, ich merke mir die Nummer: {telephone}."
+    - text: "Alles klar, Ihr Nachname ist {last_name}."
   utter_ask_name:
-    - text: "Stell dich doch bitte mit Namen vor."
-  utter_ask_telephone:
-    - text: "Wie ist deine Telefonnummer?"
+    - text: "Zur verarbeitung benötigen wir Ihren Namen, stellen Sie sich bitte vor."
+    - text: "Wir benötigen Ihren Namen, wie heißen Sie?"
+  utter_be_nice:
+    - text: "Es freut mich Sie kennen zu lernen."
   utter_restart:
     - text: "Es tut mir leid, dass es Probleme gab. Das Gespräch wurde zurückgesetzt."
     - text: "Das Gespräch wurde neu gestartet"

@@ -22,6 +22,7 @@
 * inform{"last_name": ""}
   - slot{"last_name": ""}
   - utter_last_name
+  - utter_be_nice
   - utter_ask_phone_number
 > ask_phone_number
  
@@ -34,6 +35,7 @@
 * inform{"first_name": ""}
   - slot{"first_name":""}
   - utter_first_name
+  - utter_be_nice
   - utter_ask_phone_number
 > ask_phone_number
 
