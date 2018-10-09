@@ -20,15 +20,15 @@ actions:
  - utter_ask_telephone
  - utter_telephone
  - utter_ask_name
- - utter_last_name
- - utter_first_name
  - utter_say_time
  - utter_ask_time
  - utter_ask_callback_time
  - utter_ask_last_name
  - utter_ask_first_name
  - utter_confirm_callback_time
+ - utter_be_nice
  - utter_goodbye
+ - utter_show_options
  - utter_ask_phone_number
  - utter_confirm_phone_number
  - utter_ask_what_todo
@@ -78,10 +78,8 @@ slots:
  select_action:
    type: categorical
    values:
-    - date
-    - name
+    - call
     - report_damage
-    - phone
 
 templates:
   utter_ask_street_address:
@@ -97,18 +95,15 @@ templates:
     - text: "Ich habe Ihre Antwort leider nicht verstanden."
   utter_greet:
     - text: "Hi, ich bin Zoe"
+    - text: "Zzzzoe in da HOUSE"
   utter_name:
-    - text: "Hey, {first_name} {last_name} schön dich kennenzulernen!"
-  utter_first_name:
-    - text: "Hey, {first_name} schön dich kennenzulernen!"
-  utter_last_name:
-    - text: "Hey, {last_name} schön dich kennenzulernen!"
-  utter_telephone:
-    - text: "Okay, ich merke mir die Nummer: {telephone}."
+    - text: "Es freut mich Sie kennenzulernen {first_name} {last_name}"
   utter_ask_name:
-    - text: "Stell dich doch bitte mit Namen vor."
-  utter_ask_telephone:
-    - text: "Wie ist deine Telefonnummer?"
+    - text: "Zur verarbeitung benötigen ich Ihren Namen, stellen Sie sich bitte vor."
+    - text: "ich benötigen Ihren Namen, wie heißen Sie?"
+  utter_be_nice:
+    - text: "Ich hoffe es geht Ihnen gut! Ich benötigte nun ein paar Daten um den Schaden auf zu nehmen."
+    - text: "Ich hoffe es ist alles gut bei Ihnen! Ich benötigte nun ein paar Daten um den Schaden auf zu nehmen."
   utter_restart:
     - text: "Es tut mir leid, dass es Probleme gab. Das Gespräch wurde zurückgesetzt."
     - text: "Das Gespräch wurde neu gestartet"
@@ -130,8 +125,11 @@ templates:
   utter_confirm_phone_number:
     - text: "Lautet Ihre Telefonnummer {user_phone_number}?"
   utter_ask_what_todo:
-    - text: "Wie kann ich dir weiter helfen?\n Du kannst wählen zwischen \"Namen eingeben\", \"Datum eingeben\", \"Nummer eingeben\" oder \"Schaden melden\"."
+    - text: "Wie kann ich Ihnen weiter helfen?"
+  utter_show_options:
+    - text: "Sie können zwischen \"Schaden melden\" und \"Anruf vereinbaren\" wählen."
   utter_ask_first_name:
-    - text: "Wie lautet dein Vorname?"
+    - text: "Wie lautet Ihr Vorname?"
   utter_ask_last_name:
-    - text: "Wie lautet dein Nachname?"
+    - text: "Wie lautet Ihr Nachname?"
+
