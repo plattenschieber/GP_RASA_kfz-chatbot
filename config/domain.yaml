@@ -3,64 +3,74 @@ intents:
  - goodbye
  - report_damage
  - inform #Informs the bot with new user data
- - what_todo
  - confirm
  - deny
+ - what_todo
 
 actions:
-  - utter_default
-  - utter_ask_whattodo
-  - utter_greet
-  - utter_name
-  - utter_ask_telephone
-  - utter_telephone
-  - utter_ask_name
-  - utter_last_name
-  - utter_first_name
-  - utter_say_time
-  - utter_ask_time
-  - utter_ask_callback_time
-  - utter_confirm_callback_time
-  - utter_goodbye
-  - action_save_damage_time
-  - action_save_callback_time
+ - utter_default
+ - utter_greet
+ - utter_name
+ - utter_ask_telephone
+ - utter_telephone
+ - utter_ask_name
+ - utter_last_name
+ - utter_first_name
+ - utter_say_time
+ - utter_ask_time
+ - utter_ask_callback_time
+ - utter_confirm_callback_time
+ - utter_goodbye
+ - utter_ask_phone_number
+ - utter_confirm_phone_number
+ - utter_ask_what_todo
+ - action_save_damage_time
+ - action_save_callback_time
+ - action_save_user_phone_number
 
 entities:
-  - time #duckling entity for time
-  - first_name
-  - last_name
-  - telephone
-  - number
-  - phone-number
-  - select_action
+ - time #duckling entity for time
+ - phone-number #duckling entity for phone-numbers
+ - number #duckling entity for number
+ - first_name
+ - last_name
+ - telephone
+ - select_action
 
 slots:
-  time: #duckling time Slot
-    type: text
-  damage_time:
-    type: text
-  callback_time:
-    type: text
-  first_name:
+ time: #duckling time Slot
+   type: text
+ damage_time:
+   type: text
+ callback_time:
+   type: text
+ first_name:
     initial_value: null
     type: text
-  last_name:
+ last_name:
     initial_value: null
     type: text
-  telephone:
+ telephone:
     initial_value: null
     type: text
-  select_action:
-    type: categorical
-    initial_value: name
-    values:
-      - report_damage
-      - name
-      - date
+ phone-number: #durckling phone-number Slot
+   type: text
+ user_phone_number: #phone-number of chat partner
+   type: text
+ select_action:
+   type: categorical
+   values:
+    - date
+    - name
+    - report_damage
+    - phone
 
 templates:
-  utter_ask_whattodo:
-    - text: "Wie kann ich dir helfen? Du kannst wählen zwischen \"Schaden melden\", \"Name eintragen\" oder \"Datum testen\"."
+  utter_default:
+    - text: "Leider habe ich Sie nicht verstanden."
+    - text: "Ich habe Ihre Antwort leider nicht verstanden."
+  utter_greet:
+    - text: "Hi, ich bin Zoe"
   utter_name:
     - text: "Hey, {first_name} {last_name} schön dich kennenzulernen!"
   utter_first_name:
@@ -77,11 +87,6 @@ templates:
     - text: "Es tut mir leid, dass es Probleme gab. Das Gespräch wurde zurückgesetzt."
     - text: "Das Gespräch wurde neu gestartet"
     - text: "Die Unterhaltung wird neu gestartet"
-  utter_default:
-    - text: "Leider habe ich Sie nicht verstanden."
-    - text: "Ich habe Ihre Antwort leider nicht verstanden."
-  utter_greet:
-    - text: "Hi, ich bin Zoe"
   utter_ask_time:
     - text: "Wann wurde ihr Schaden verursacht?"
   utter_say_time:
@@ -93,3 +98,10 @@ templates:
   utter_goodbye:
     - text: "Vielen Dank, schönen Tag noch!"
     - text: "Danke für Ihre Zeit. Einen schönen Tag noch!"
+  utter_ask_phone_number:
+    - text: "Wie lautet Ihre Telefonnummer?"
+    - text: "Unter welcher Telefonnummer können wir Sie am besten erreichen?"
+  utter_confirm_phone_number:
+    - text: "Lautet Ihre Telefonnummer {user_phone_number}?"
+  utter_ask_what_todo:
+    - text: "Wie kann ich dir weiter helfen?\n Du kannst wählen zwischen \"Namen eingeben\", \"Datum eingeben\", \"Nummer eingeben\" oder \"Schaden melden\"."
