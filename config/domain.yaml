@@ -5,16 +5,34 @@ intents:
 actions:
  - utter_default
  - utter_greet
-
+ - utter_ask_street_address
+ - utter_ask_house_number
+ - utter_ask_street
+ - utter_ask_zipcode
+ - action_safe_street_address
 
 entities:
-
+ - street
+ - house_number
 
 slots:
-
+ street:
+   type: text
+ house_number:
+   type: text
+ street_address:
+   type: text
 
 templates:
  utter_default:
    - text: "Leider habe ich Sie nicht verstanden."
  utter_greet:
    - text: "Hi, ich bin Zoe"
+ utter_ask_street_address:
+   - text: "Koennen Sie mir Ihre Strassenadresse verraten?"
+ utter_ask_house_number:
+   - text: "Danke, und wie lautet Ihre Hausnummer nochmal?"
+ utter_ask_street:
+   - text: "Danke, und in welcher Strasse wohnen Sie?"
+ utter_ask_zipcode:
+   - text: "ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE"
