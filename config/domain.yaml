@@ -5,16 +5,45 @@ intents:
 actions:
  - utter_default
  - utter_greet
-
+ - utter_name
+ - utter_ask_telephone
+ - utter_telephone
+ - utter_ask_name
+ - utter_last_name
+ - utter_first_name
 
 entities:
-
+  - first_name
+  - last_name
+  - telephone
+  - number
+  - phone-number
 
 slots:
-
+  first_name:
+    initial_value: null
+    type: text
+  last_name:
+    initial_value: null
+    type: text
+  telephone:
+    initial_value: null
+    type: text
 
 templates:
- utter_default:
-   - text: "Leider habe ich Sie nicht verstanden."
- utter_greet:
-   - text: "Hi, ich bin Zoe"
+  utter_default:
+    - text: "Leider habe ich Sie nicht verstanden."
+  utter_greet:
+    - text: "Hi, ich bin Zoe"
+  utter_name:
+    - text: "Hey, {first_name} {last_name} schön dich kennenzulernen!"
+  utter_first_name:
+    - text: "Hey, {first_name} schön dich kennenzulernen!"
+  utter_last_name:
+    - text: "Hey, {last_name} schön dich kennenzulernen!"
+  utter_telephone:
+    - text: "Okay, ich merke mir die Nummer: {telephone}."
+  utter_ask_name:
+    - text: "Stell dich doch bitte mit Namen vor."
+  utter_ask_telephone:
+    - text: "Wie ist deine Telefonnummer?"
