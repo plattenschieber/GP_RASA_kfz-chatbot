@@ -1,5 +1,7 @@
 intents:
  - greet
+ - greet+report_damage
+ - greet+inform
  - goodbye
  - report_damage
  - inform #Informs the bot with new user data
