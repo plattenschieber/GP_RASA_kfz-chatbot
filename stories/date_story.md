@@ -1,5 +1,5 @@
 ## Datum erfragen, Callback vereinbaren 
-* greet
+* greet+report_damage
  - utter_greet
  - utter_ask_time
 * inform{"time":""}
