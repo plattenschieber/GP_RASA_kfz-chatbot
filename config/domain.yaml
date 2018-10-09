@@ -28,8 +28,13 @@ slots:
    type: text
 
 templates:
+ utter_restart:
+   - text: "Es tut mir leid, dass es Probleme gab. Das Gespräch wurde zurückgesetzt."
+   - text: "Das Gespräch wurde neu gestartet"
+   - text: "Die Unterhaltung wird neu gestartet"
  utter_default:
    - text: "Leider habe ich Sie nicht verstanden."
+   - text: "Ich habe Ihre Antwort leider nicht verstanden."
  utter_greet:
    - text: "Hi, ich bin Zoe"
  utter_ask_time:
