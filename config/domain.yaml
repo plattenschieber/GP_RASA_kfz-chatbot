@@ -1,5 +1,7 @@
 intents:
  - greet
+ - greet+report_damage
+ - greet+inform
  - goodbye
  - report_damage
  - inform #Informs the bot with new user data
@@ -10,6 +12,10 @@ intents:
 actions:
  - utter_default
  - utter_greet
+ - utter_ask_street_address
+ - utter_ask_house_number
+ - utter_ask_street
+ - utter_ask_zipcode
  - utter_name
  - utter_ask_telephone
  - utter_telephone
@@ -29,17 +35,27 @@ actions:
  - action_save_damage_time
  - action_save_callback_time
  - action_save_user_phone_number
+ - action_safe_street_address
 
 entities:
+ - street
+ - house_number
  - time #duckling entity for time
  - phone-number #duckling entity for phone-numbers
  - number #duckling entity for number
+ - crf-phone-number #phone number slot for ner-crf
  - first_name
  - last_name
- - telephone
+ - user_phone_number #target slot for the user phone number
  - select_action
 
 slots:
+ street:
+   type: text
+ house_number:
+   type: text
+ street_address:
+   type: text
  time: #duckling time Slot
    type: text
  damage_time:
@@ -52,10 +68,10 @@ slots:
  last_name:
     initial_value: null
     type: text
- telephone:
+ crf-phone-number:
     initial_value: null
     type: text
- phone-number: #durckling phone-number Slot
+ phone-number: #duckling phone-number Slot
    type: text
  user_phone_number: #phone-number of chat partner
    type: text
@@ -66,6 +82,14 @@ slots:
     - report_damage
 
 templates:
+  utter_ask_street_address:
+    - text: "Koennen Sie mir Ihre Strassenadresse verraten?"
+  utter_ask_house_number:
+    - text: "Danke, und wie lautet Ihre Hausnummer nochmal?"
+  utter_ask_street:
+    - text: "Danke, und in welcher Strasse wohnen Sie?"
+  utter_ask_zipcode:
+    - text: "ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE"
   utter_default:
     - text: "Leider habe ich Sie nicht verstanden."
     - text: "Ich habe Ihre Antwort leider nicht verstanden."
@@ -108,3 +132,4 @@ templates:
     - text: "Wie lautet Ihr Vorname?"
   utter_ask_last_name:
     - text: "Wie lautet Ihr Nachname?"
+
