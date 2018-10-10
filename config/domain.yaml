@@ -27,13 +27,16 @@ actions:
  - utter_ask_first_name
  - utter_ask_phone_number
  - utter_confirm_phone_number
+ - utter_confirm_callback_time
 # utter prints
+ - utter_call_meeting
  - utter_name
  - utter_telephone
  - utter_say_time
- - utter_confirm_callback_time
  - utter_be_nice
  - utter_show_options
+ - utter_address
+ - utter_goodbye_call
  # custon actions
  - action_save_damage_time
  - action_save_callback_time
@@ -42,8 +45,8 @@ actions:
 
 entities:
  - street
+ - time
  - house_number
- - time #duckling entity for time
  - phone-number #duckling entity for phone-numbers
  - crf-phone-number #phone number slot for ner-crf
  - user_phone_number #target slot for the user phone number
@@ -136,4 +139,11 @@ templates:
     - text: "Wie lautet Ihr Vorname?"
   utter_ask_last_name:
     - text: "Wie lautet Ihr Nachname?"
-
+  utter_address:
+    - text: "Ich habe mir die Addrese {street_address} für Sie notiert."
+  utter_call_meeting:
+    - text: "Für einen Rückruf benötigte ich verschiedene Daten."
+    - text: "Alles klar, dazu benötige ich verschiedene Daten von Ihnen."
+    - text: "Gerne, ich benötige allerdings einige Daten von Ihnen."
+  utter_goodbye_call:
+    - text: "Vielen Dank wir werden uns unter der angegebenen Telefonnummer melden!"
