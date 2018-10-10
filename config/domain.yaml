@@ -79,6 +79,7 @@ slots:
    values:
     - call
     - report_damage
+    - date
 
 templates:
   utter_ask_street_address:
