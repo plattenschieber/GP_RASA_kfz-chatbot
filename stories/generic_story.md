@@ -1,5 +1,5 @@
 ## Begrüßen
-* greet OR greet+inform
+* greet
  - utter_greet
  - utter_ask_what_todo
  - utter_show_options

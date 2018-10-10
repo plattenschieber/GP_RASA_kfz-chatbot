@@ -7,8 +7,9 @@
 
 ## Nach Telefonnummer fragen 
 > ask_phone_number
-* inform{"crf-phone-number":""}
+* inform{"crf-phone-number":""} OR inform{"phone-number":""} OR inform{"crf-phone-number":"", "phone-number":""}
  - action_save_user_phone_number
+ - slot{"user_phone_number": ""}
  - utter_confirm_phone_number
 > confirm_phone_number
 

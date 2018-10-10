@@ -17,7 +17,6 @@ actions:
  - utter_ask_street
  - utter_ask_zipcode
  - utter_name
- - utter_ask_telephone
  - utter_telephone
  - utter_ask_name
  - utter_say_time
