@@ -7,9 +7,8 @@
 
 ## Nach Telefonnummer fragen 
 > ask_phone_number
-* inform{"phone-number":""}
+* inform{"crf-phone-number":""}
  - action_save_user_phone_number
- - slot{"user_phone_number":""}
  - utter_confirm_phone_number
 > confirm_phone_number
 
@@ -28,4 +27,5 @@
 ## Richtige Telefonnummer angegeben
 > confirm_phone_number
 * confirm
- - utter_goodbye
+  - utter_ask_street_address
+> check_ask_street_address
