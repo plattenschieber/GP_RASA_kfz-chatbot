@@ -28,6 +28,9 @@ actions:
  - utter_ask_phone_number
  - utter_confirm_phone_number
  - utter_confirm_callback_time
+ - utter_ask_email
+ - utter_ask_optional_email
+ - utter_confirm_email
 # utter prints
  - utter_call_meeting
  - utter_name
@@ -42,11 +45,13 @@ actions:
  - action_save_callback_time
  - action_save_user_phone_number
  - action_safe_street_address
+ - action_save_user_email
 
 entities:
  - street
- - time
  - house_number
+ - time #duckling entity for time
+ - email #duckling entity for email
  - phone-number #duckling entity for phone-numbers
  - crf-phone-number #phone number slot for ner-crf
  - user_phone_number #target slot for the user phone number
@@ -81,6 +86,10 @@ slots:
    type: text
  user_phone_number: #phone-number of chat partner
    type: text
+ email: #duckling email Slot
+   type: text
+ user_email: # email of chat partner
+   type: text
  select_action:
    type: categorical
    values:
@@ -90,9 +99,9 @@ slots:
 
 templates:
   utter_ask_street_address:
-    - text: "Koennen Sie mir Ihre Strassenadresse verraten?"
+    - text: "Ich brauche zusätzlich noch Ihre Adresse. Bitte geben Sie diese an."
   utter_ask_house_number:
-    - text: "Danke, und wie lautet Ihre Hausnummer nochmal?"
+    - text: "Danke, und wie lautet Ihre Hausnummer?"
   utter_ask_street:
     - text: "Danke, und in welcher Strasse wohnen Sie?"
   utter_ask_zipcode:
@@ -106,17 +115,17 @@ templates:
   utter_name:
     - text: "Es freut mich Sie kennenzulernen {first_name} {last_name}"
   utter_ask_name:
-    - text: "Zur verarbeitung benötigen ich Ihren Namen, stellen Sie sich bitte vor."
-    - text: "ich benötigen Ihren Namen, wie heißen Sie?"
+    - text: "Zur verarbeitung benötige ich Ihren Namen, stellen Sie sich bitte vor."
+    - text: "Ich benötigen Ihren Namen, wie heißen Sie?"
   utter_be_nice:
-    - text: "Ich hoffe es geht Ihnen gut! Ich benötigte nun ein paar Daten um den Schaden auf zu nehmen."
+    - text: "Ich hoffe es geht Ihnen gut! Ich benötigte nun ein paar Daten um den Schaden aufzunehmen."
     - text: "Ich hoffe es ist alles gut bei Ihnen! Ich benötigte nun ein paar Daten um den Schaden auf zu nehmen."
   utter_restart:
     - text: "Es tut mir leid, dass es Probleme gab. Das Gespräch wurde zurückgesetzt."
     - text: "Das Gespräch wurde neu gestartet"
     - text: "Die Unterhaltung wird neu gestartet"
   utter_ask_time:
-    - text: "Wann wurde ihr Schaden verursacht?"
+    - text: "Wann wurde der Schaden verursacht?"
   utter_say_time:
     - text: "Der Schaden wurde am {damage_time} verursacht"
   utter_ask_callback_time:
@@ -131,6 +140,14 @@ templates:
     - text: "Unter welcher Telefonnummer können wir Sie am besten erreichen?"
   utter_confirm_phone_number:
     - text: "Lautet Ihre Telefonnummer {user_phone_number}?"
+  utter_ask_email:
+    - text: "Wie lautet ihre Email Adresse?"
+    - text: "Unter welcher Email Adresse können wir Sie am besten erreichen?"
+  utter_confirm_email:
+    - text: "Ist {user_email} die korrekte Email?"
+    - text: "Ist {user_email} Ihre Email?"
+  utter_ask_optional_email:
+    - text: "Möchten Sie zusätzlich Ihre Email Adresse angeben?"
   utter_ask_what_todo:
     - text: "Wie kann ich Ihnen weiter helfen?"
   utter_show_options:

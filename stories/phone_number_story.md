@@ -14,10 +14,20 @@
  - utter_ask_phone_number
 > ask_phone_number_call
 
-## Richtige Telefonnummer angegeben
+## Richtige Telefonnummer angeben und keine Email 
 > confirm_phone_number_call
 * confirm
-  - utter_goodbye_call
+ - utter_ask_optional_email
+* deny
+ - utter_goodbye_call
+ 
+## Richtige Telefonnummer angegeben und Email angeben
+> confirm_phone_number_call
+* confirm
+ - utter_ask_optional_email
+* confirm
+ - utter_ask_email
+> enter_email
 
 <!--Report Damage Story-->
 
@@ -38,5 +48,17 @@
 ## Richtige Telefonnummer angegeben
 > confirm_phone_number
 * confirm
-  - utter_ask_street_address
+  - utter_ask_optional_email
+> ask_optional_email
+  
+## Optionale Email angeben
+> ask_optional_email
+* confirm
+ - utter_ask_email
+> enter_email
+ 
+## Optionale Email nicht angeben
+> ask_optional_email
+* deny
+ - utter_ask_street_address
 > check_ask_street_address

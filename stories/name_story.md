@@ -45,8 +45,8 @@
 * what_todo{"select_action": "report_damage"}
   - slot{"select_action": "report_damage"}
   - utter_be_nice
-  - utter_ask_name
-> enter_name_call
+  - utter_ask_time
+> enter_date
 
 ## Enter Name
 > enter_name
