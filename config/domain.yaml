@@ -10,27 +10,31 @@ intents:
  - what_todo
 
 actions:
+# utter defaults
  - utter_default
  - utter_greet
+ - utter_goodbye
+# utter ask details
+ - utter_ask_what_todo
  - utter_ask_street_address
  - utter_ask_house_number
  - utter_ask_street
  - utter_ask_zipcode
- - utter_name
- - utter_telephone
  - utter_ask_name
- - utter_say_time
  - utter_ask_time
  - utter_ask_callback_time
  - utter_ask_last_name
  - utter_ask_first_name
- - utter_confirm_callback_time
- - utter_be_nice
- - utter_goodbye
- - utter_show_options
  - utter_ask_phone_number
  - utter_confirm_phone_number
- - utter_ask_what_todo
+# utter prints
+ - utter_name
+ - utter_telephone
+ - utter_say_time
+ - utter_confirm_callback_time
+ - utter_be_nice
+ - utter_show_options
+ # custon actions
  - action_save_damage_time
  - action_save_callback_time
  - action_save_user_phone_number
@@ -41,11 +45,11 @@ entities:
  - house_number
  - time #duckling entity for time
  - phone-number #duckling entity for phone-numbers
- - number #duckling entity for number
  - crf-phone-number #phone number slot for ner-crf
+ - user_phone_number #target slot for the user phone number
+ - number #duckling entity for number
  - first_name
  - last_name
- - user_phone_number #target slot for the user phone number
  - select_action
 
 slots:
