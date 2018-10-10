@@ -45,6 +45,15 @@
 * what_todo{"select_action": "report_damage"}
   - slot{"select_action": "report_damage"}
   - utter_be_nice
+  - slot{"first_name":"", "last_name": ""}
+  - utter_name
+> ask_phone_number_call
+
+## Enter What ToDo Report Damage
+> enter_what_todo
+* what_todo{"select_action": "report_damage"}
+  - slot{"select_action": "report_damage"}
+  - utter_be_nice
   - utter_ask_time
 > enter_date
 
