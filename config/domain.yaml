@@ -3,11 +3,11 @@ intents:
  - greet+report_damage
  - greet+inform
  - goodbye
- - report_damage
+ - what_todo
  - inform #Informs the bot with new user data
  - confirm
  - deny
- - what_todo
+ - report_damage
 
 actions:
 # utter defaults
@@ -48,14 +48,14 @@ actions:
  - action_save_user_email
 
 entities:
- - street
- - house_number
  - time #duckling entity for time
  - email #duckling entity for email
  - phone-number #duckling entity for phone-numbers
  - crf-phone-number #phone number slot for ner-crf
  - user_phone_number #target slot for the user phone number
  - number #duckling entity for number
+ - street
+ - house_number
  - first_name
  - last_name
  - select_action
