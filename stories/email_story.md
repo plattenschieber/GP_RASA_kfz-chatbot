@@ -1,4 +1,4 @@
-## Email erfragen
+## Ask for email
 > enter_email
 * inform{"email":""}
  - action_save_user_email
@@ -6,13 +6,13 @@
  - utter_confirm_email
 > ask_email
 
-##Email bestätigen
+## Confirm email
 > ask_email 
 * confirm
  - utter_ask_street_address
 > check_ask_street_address
  
-##Email bestätigen
+## Deny email
 > ask_email 
 * deny
  - utter_ask_email

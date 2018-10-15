@@ -1,4 +1,4 @@
-## Enter a Date 
+## Ask for date 
 > enter_date
 * inform{"time":""}
  - action_save_damage_time
@@ -6,7 +6,7 @@
  - utter_ask_name
 > enter_name
  
-## Enter a Callback Time
+## Ask for callback time
 > enter_callback_time
 * inform{"time":""}
  - action_save_callback_time
@@ -14,12 +14,12 @@
  - utter_confirm_callback_time
 > ask_callback_time
 
-## Callback-Zeit bestätigen
+## Confirm callback time
 > ask_callback_time
 * confirm
  - utter_goodbye
  
- ## Callback-Zeit nicht bestätigen
+ ## Deny callback time and restart callback story
 > ask_callback_time
 * deny
  - utter_ask_callback_time

@@ -1,6 +1,6 @@
 <!--Report Damage Story-->
 
-## Start Call Story
+## Start call back Story
 > enter_what_todo
 * what_todo{"select_action": "call"}
   - slot{"select_action": "call"}
@@ -8,7 +8,7 @@
   - utter_ask_name
 > enter_name_call
 
-## Enter both names for a call
+## Enter both names for a call back
 > enter_name_call
 * inform{"first_name":"", "last_name": ""}
   - slot{"first_name":"", "last_name": ""} 
@@ -16,7 +16,7 @@
   - utter_ask_phone_number
 > ask_phone_number_call
 
-## Enter first name then last name for a call
+## Enter first name then last name for a call back
 > enter_name_call  
 * inform{"first_name": ""}
   - slot{"first_name":""}
@@ -27,7 +27,7 @@
   - utter_ask_phone_number
 > ask_phone_number_call
  
-## Enter last name then first name for a call
+## Enter last name then first name for a call back
 > enter_name_call
 * inform{"last_name": ""}
   - slot{"last_name": ""}
@@ -37,6 +37,7 @@
   - utter_name
   - utter_ask_phone_number
 > ask_phone_number_call
+<!-- END -->
 
 <!--Report Damage Story-->
 
@@ -88,3 +89,4 @@
   - utter_ask_phone_number
 > ask_phone_number
 
+<!-- END -->
