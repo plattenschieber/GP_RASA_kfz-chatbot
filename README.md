@@ -35,13 +35,13 @@ The chatbot could be started in different modes with  different purposes:
 
 * *local* - in local mode the bot will be trained with the locally located domain file and supplies an api to interact with. You can start the bot with the following command:
    ```bash
-      docker-compose -p gpb -f docker/docker-compose.yaml -f docker/docker-compose.local.yaml up -d
+      docker-compose -f docker/docker-compose.yaml -f docker/docker-compose.local.yaml up -d
    ```
 * *trainer* - in trainer mode the chat bot will train a given model and sens it to our model server, please read the corresponding project documentation '[core-model-server](https://bitbucket.gpchatbot.archi-lab.io/projects/CHATBOT/repos/core-model-server/browse)'. This mode could be run by:
    ```bash
-      docker-compose -p gpb -f docker/docker-compose.yaml -f docker/docker-compose.trainer.yaml up -d
+      docker-compose -f docker/docker-compose.yaml -f docker/docker-compose.trainer.yaml up -d
    ```
 * *interactive* - in interactive mode the bot will be trained withe the local domain and supplies an api to train and build up new stories. This mode could be started by the following command:
   ```bash
-    docker-compose -p gpb -f docker/docker-compose.yaml -f docker/docker-compose.interactive.yaml up -d
+    docker-compose -f docker/docker-compose.yaml -f docker/docker-compose.interactive.yaml up -d
   ```
