@@ -47,7 +47,8 @@
   - utter_be_nice
   - slot{"first_name":"", "last_name": ""}
   - utter_name
-> ask_phone_number_call
+  - utter_ask_phone_number
+> ask_phone_number
 
 ## Enter What ToDo Report Damage
 > enter_what_todo
