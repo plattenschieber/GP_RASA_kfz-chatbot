@@ -2,7 +2,12 @@
 This is a chatbot build with rasa.ai for the domain of car insurances. At this point the chatbot only understands german.
 The bot features two major stories about reporting a car damage or to arrange a callback to clearify further details.
 
-## Report Car damage
+## Structure
+* *docker* contains different docker-compose files for different modes.
+* *stories* contains all stories which the bot should know.
+* *config* contains the *domain.yaml* where all the domain of the bot is defined.
+
+## Story: report car damage
 This is a short description about the procedure of the 'report car damage' story:
 * Ask for the date of incident 
 * Ask name (first and sur- (last) name are mandatory)
@@ -10,7 +15,7 @@ This is a short description about the procedure of the 'report car damage' story
 * Ask for address of the car owner
 * Ask for email (optional)
 
-## Arrange Callback  
+## Story: arrange callback  
 The following bullet point give an overview about the bots actions in the 'arrange callback' story:
 * Ask name (first and sur- (last) name are mandatory)
 * Ask for phone number
