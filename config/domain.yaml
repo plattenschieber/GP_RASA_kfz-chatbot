@@ -46,7 +46,6 @@ actions:
  - action_save_user_phone_number
  - action_save_street_address
  - action_save_user_email
- - action_save_zip_city
  - action_send_email
 
 entities:
@@ -58,19 +57,14 @@ entities:
  - number #duckling entity for number
  - street
  - house_number
- - zip
- - city
  - first_name
  - last_name
  - select_action
  - damage_time
  - callback_time
+ - zip_city
 
 slots:
- zip:
-   type: text
- city:
-   type: text
  zip_city:
    type: text
  street:
