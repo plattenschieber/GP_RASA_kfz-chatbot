@@ -44,8 +44,9 @@ actions:
  - action_save_damage_time
  - action_save_callback_time
  - action_save_user_phone_number
- - action_safe_street_address
+ - action_save_street_address
  - action_save_user_email
+ - action_save_zip_city
 
 entities:
  - time #duckling entity for time
@@ -56,11 +57,19 @@ entities:
  - number #duckling entity for number
  - street
  - house_number
+ - zip
+ - city
  - first_name
  - last_name
  - select_action
 
 slots:
+ zip:
+   type: text
+ city:
+   type: text
+ zip_city:
+   type: text
  street:
    type: text
  house_number:
@@ -105,7 +114,7 @@ templates:
   utter_ask_street:
     - text: "Danke, und in welcher Strasse wohnen Sie?"
   utter_ask_zipcode:
-    - text: "ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE ADJUST THIS ONE"
+    - text: "Vielen dank, in welchem Ort wohnen Sie?"
   utter_default:
     - text: "Leider habe ich Sie nicht verstanden."
     - text: "Ich habe Ihre Antwort leider nicht verstanden."
