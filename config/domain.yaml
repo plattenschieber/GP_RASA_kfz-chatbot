@@ -111,23 +111,33 @@ slots:
 templates:
   utter_ask_street_address:
     - text: "Ich brauche zusätzlich noch Ihre Adresse. Bitte geben Sie diese an."
+    - text: "Um ihre Schadensmeldung aufzunehmen benötigen ich noch ihre Adresse, könnten Sie diese bitte angeben."
+    - text: "Zum vervollständigen ihrer Angaben benötige ich jetzt noch die Angabe ihrer Adresse."
   utter_ask_house_number:
     - text: "Danke, und wie lautet Ihre Hausnummer?"
+    - text: "Danke, können Sie bitte noch Ihre Hausnummer ergänzen?"
+    - text: "Ich benötige jetzt noch Ihre Hausnummer ergänzen."
   utter_ask_street:
     - text: "Danke, und in welcher Strasse wohnen Sie?"
+    - text: "Danke, und wie heißt die Straße in der Sie wohnen?"
   utter_ask_zipcode:
     - text: "Vielen dank, in welchem Ort wohnen Sie?"
+    - text: "Danke, und wie lautet ihre Postleitzahl?"
+    - text: "Danke, zum vervollständigen benötige ich jetzt noch ihre Postleitzahl"
   utter_default:
     - text: "Leider habe ich Sie nicht verstanden."
     - text: "Ich habe Ihre Antwort leider nicht verstanden."
+    - text: "Tut mir leid, ich habe ihre Angabe nicht richtig verstanden."
   utter_greet:
-    - text: "Hi, ich bin Zoe"
-    - text: "Zzzzoe in da HOUSE"
+    - text: "Hallo, mein name ist Zoe."
+    - text: "Hallo, ich bin Zoe."
   utter_name:
     - text: "Es freut mich Sie kennenzulernen {first_name} {last_name}"
+    - text: "{first_name} {last_name} es freut mich Sie kennenzulernen"
   utter_ask_name:
     - text: "Zur verarbeitung benötige ich Ihren Namen, stellen Sie sich bitte vor."
     - text: "Ich benötigen Ihren Namen, wie heißen Sie?"
+    - text: "Ich benötigen Ihren Namen, wie darf ich Sie ansprechen?"
   utter_be_nice:
     - text: "Ich hoffe es geht Ihnen gut! Ich benötigte nun ein paar Daten um den Schaden aufzunehmen."
     - text: "Ich hoffe es ist alles gut bei Ihnen! Ich benötigte nun ein paar Daten um den Schaden auf zu nehmen."
@@ -137,10 +147,12 @@ templates:
     - text: "Die Unterhaltung wird neu gestartet"
   utter_ask_time:
     - text: "Wann wurde der Schaden verursacht?"
+    - text: "Können Sie den Zeitpunkt nennen, an dem der Schaden entstanden ist?"
   utter_say_time:
     - text: "Der Schaden wurde am {damage_time} verursacht"
   utter_ask_callback_time:
     - text: "Wann können wir Sie erreichen um Weiteres zu klären?"
+    - text: "Zu welchem Zeitpunkt sind Sie für einen Rückruf erreichbar?"
   utter_confirm_callback_time:
     - text: "Am {callback_time} können wir Sie erreichen?"
   utter_goodbye:
@@ -151,6 +163,7 @@ templates:
     - text: "Unter welcher Telefonnummer können wir Sie am besten erreichen?"
   utter_confirm_phone_number:
     - text: "Lautet Ihre Telefonnummer {user_phone_number}?"
+    - text: "Ist die Telefonnummer {user_phone_number} korrekt?"
   utter_ask_email:
     - text: "Wie lautet ihre Email Adresse?"
     - text: "Unter welcher Email Adresse können wir Sie am besten erreichen?"
@@ -163,6 +176,7 @@ templates:
     - text: "Wie kann ich Ihnen weiter helfen?"
   utter_show_options:
     - text: "Sie können zwischen \"Schaden melden\" und \"Anruf vereinbaren\" wählen."
+    - text: "Sie können bei mir einen \"Schaden melden\" oder einen \"Anruf vereinbaren\"."
   utter_ask_first_name:
     - text: "Wie lautet Ihr Vorname?"
   utter_ask_last_name:
