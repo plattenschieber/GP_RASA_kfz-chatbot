@@ -40,13 +40,14 @@ actions:
  - utter_show_options
  - utter_address
  - utter_goodbye_call
- # custon actions
+ # custom actions
  - action_save_damage_time
  - action_save_callback_time
  - action_save_user_phone_number
  - action_save_street_address
  - action_save_user_email
  - action_save_zip_city
+ - action_send_email
 
 entities:
  - time #duckling entity for time
@@ -62,6 +63,8 @@ entities:
  - first_name
  - last_name
  - select_action
+ - damage_time
+ - callback_time
 
 slots:
  zip:
@@ -104,7 +107,6 @@ slots:
    values:
     - call
     - report_damage
-    - date
 
 templates:
   utter_ask_street_address:
