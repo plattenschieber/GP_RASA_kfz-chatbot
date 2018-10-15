@@ -1,6 +1,6 @@
 ## Ask for date 
 > enter_date
-* inform{"time":""} OR inform{"time":"", "phone-number": ""}
+* inform{"time":""} OR inform{"time":"", "phone-number": ""} OR inform {"time":"", "street": "","house_number": "" }
  - action_save_damage_time
  - slot{"damage_time":""}
  - utter_ask_name

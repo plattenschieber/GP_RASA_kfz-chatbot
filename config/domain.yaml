@@ -104,9 +104,9 @@ slots:
 
 templates:
   utter_ask_street_address:
-    - text: "Ich brauche zusätzlich noch Ihre Adresse. Bitte geben Sie diese an."
-    - text: "Um ihre Schadensmeldung aufzunehmen benötigen ich noch ihre Adresse, könnten Sie diese bitte angeben."
-    - text: "Zum vervollständigen ihrer Angaben benötige ich jetzt noch die Angabe ihrer Adresse."
+    - text: "Ich brauche zusätzlich noch Ihre Straße und Hausnummer. Bitte geben Sie diese an."
+    - text: "Um ihre Schadensmeldung aufzunehmen benötigen ich noch ihre Straße und Hausnummer, könnten Sie diese bitte angeben."
+    - text: "Zum vervollständigen ihrer Angaben benötige ich jetzt noch Ihre Straße und Hausnummer."
   utter_ask_house_number:
     - text: "Danke, und wie lautet Ihre Hausnummer?"
     - text: "Danke, können Sie bitte noch Ihre Hausnummer ergänzen?"

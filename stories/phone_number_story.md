@@ -14,20 +14,10 @@
  - utter_ask_phone_number
 > ask_phone_number_call
 
-## Right phone number without email and end of story call back
+## Right phone number 
 > confirm_phone_number_call
 * confirm
- - utter_ask_optional_email
-* deny
- - utter_goodbye_call
- 
-## Right phone number with email
-> confirm_phone_number_call
-* confirm
- - utter_ask_optional_email
-* confirm
- - utter_ask_email
-> enter_email
+ - utter_goodbye
 
 <!-- END -->
 
