@@ -115,9 +115,9 @@ templates:
     - text: "Danke, und in welcher Strasse wohnen Sie?"
     - text: "Danke, und wie heißt die Straße in der Sie wohnen?"
   utter_ask_zipcode:
-    - text: "Vielen dank, in welchem Ort wohnen Sie?"
-    - text: "Danke, und wie lautet ihre Postleitzahl?"
-    - text: "Danke, zum vervollständigen benötige ich jetzt noch ihre Postleitzahl"
+    - text: "Vielen dank, jetzt benötige ich noch Ort und PLZ von Ihnen."
+    - text: "Danke, wie lautet Ihr Ort und die Postleitzahl."
+    - text: "Danke, zum vervollständigen benötige ich jetzt noch Ort und Postleitzahl."
   utter_default:
     - text: "Leider habe ich Sie nicht verstanden."
     - text: "Ich habe Ihre Antwort leider nicht verstanden."
