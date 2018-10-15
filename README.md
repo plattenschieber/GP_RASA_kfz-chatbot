@@ -27,12 +27,11 @@ docker build -t docker.nexus.gpchatbot.archi-lab.io/chatbot/kfz-chatbot .
 ```
 
 ### Run
-
 In order to run the chatbot you will need to create a docker network which is called 'chatbot'. You can do this by running the following command:
 ```bash
 docker network create chatbot
 ```
-The chatot could be started in different modes with  different purposes:
+The chatbot could be started in different modes with  different purposes:
 
 * *local* - in local mode the bot will be trained with the locally located domain file and supplies an api to interact with. You can start the bot with the following command:
    ```bash
