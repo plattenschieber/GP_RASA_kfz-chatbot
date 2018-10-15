@@ -21,7 +21,7 @@ To deploy and run this project docker is mandatory, you would need to install do
 The project depends on another project 'chatbot-core' which is needed to deploy the image.
 
 ### Build
-you can run the build by the following command. We will tag the image with our docker registry url and the projects name.
+You can run the build by the following command. We will tag the image with our docker registry url and the projects name.
 ```bash
 docker build -t docker.nexus.gpchatbot.archi-lab.io/chatbot/kfz-chatbot .
 ```
