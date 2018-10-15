@@ -2,7 +2,7 @@
 
 ## ask phone number for call back
 > ask_phone_number_call
-* inform{"crf-phone-number":""} OR inform{"phone-number":""} OR inform{"crf-phone-number":"", "phone-number":""}
+* inform{"crf-phone-number":""} OR inform{"phone-number":""} OR inform{"crf-phone-number":"", "phone-number":""} OR inform{"crf-phone-number":"", "time": ""} OR inform{"phone-number":"", "time": ""} OR inform{"crf-phone-number":"", "phone-number":"", "time": ""}
  - action_save_user_phone_number
  - slot{"user_phone_number": ""}
  - utter_confirm_phone_number
@@ -35,7 +35,7 @@
 
 ## Ask for phone number
 > ask_phone_number
-* inform{"crf-phone-number":""} OR inform{"phone-number":""} OR inform{"crf-phone-number":"", "phone-number":""}
+* inform{"crf-phone-number":""} OR inform{"phone-number":""} OR inform{"crf-phone-number":"", "phone-number":""} OR inform{"crf-phone-number":"", "time": ""} OR inform{"phone-number":"", "time": ""} OR inform{"crf-phone-number":"", "phone-number":"", "time": ""}
  - action_save_user_phone_number
  - slot{"user_phone_number": ""}
  - utter_confirm_phone_number

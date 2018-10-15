@@ -1,6 +1,6 @@
 ## Ask for date 
 > enter_date
-* inform{"time":""}
+* inform{"time":""} OR inform{"time":"", "phone-number": ""}
  - action_save_damage_time
  - slot{"damage_time":""}
  - utter_ask_name
@@ -8,7 +8,7 @@
  
 ## Ask for callback time
 > enter_callback_time
-* inform{"time":""}
+* inform{"time":""} OR inform{"time":"", "phone-number": ""}
  - action_save_callback_time
  - slot{"callback_time":""}
  - utter_confirm_callback_time
@@ -24,7 +24,7 @@
 > ask_callback_time
 * deny
  - utter_ask_callback_time
-* inform{"time":""}
+* inform{"time":""}  OR inform{"time":"", "phone-number": ""}
  - action_save_callback_time
  - slot{"callback_time":""}
  - utter_confirm_callback_time
