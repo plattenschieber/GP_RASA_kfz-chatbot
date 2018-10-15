@@ -3,6 +3,7 @@ version: '3'
 services:
   chatbot-core:
     environment:
+      # mode of core
       - MODE=offline_trainer
     deploy:
       restart_policy:

@@ -6,7 +6,9 @@ services:
     networks:
       - chatbot
     environment:
+      # debug information
       - ENABLE_DEBUG=true
+      # path to endpoint.yaml
       - ENDPOINTS_CONFIG_FILE=config/endpoints.prod.yaml
 networks:
   chatbot:

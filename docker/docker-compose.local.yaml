@@ -3,6 +3,7 @@ version: '3'
 services:
   chatbot-core:
     environment:
+      # mode of core
       - MODE=local_server
     ports:
       - "5005:5005"
