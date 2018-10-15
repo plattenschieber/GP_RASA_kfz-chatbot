@@ -17,6 +17,7 @@
 ## Confirm callback time
 > ask_callback_time
 * confirm
+ - action_send_email
  - utter_goodbye
  
  ## Deny callback time and restart callback story
